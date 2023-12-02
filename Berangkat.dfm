@@ -1,9 +1,9 @@
-object Form3: TForm3
-  Left = 684
-  Top = 308
-  Width = 726
-  Height = 436
-  Caption = 'Tabel Costumer'
+object Form7: TForm7
+  Left = 784
+  Top = 171
+  Width = 625
+  Height = 457
+  Caption = 'Form Jadwal'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,64 +15,71 @@ object Form3: TForm3
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
-    Left = 64
-    Top = 64
-    Width = 76
+    Left = 48
+    Top = 80
+    Width = 71
     Height = 13
-    Caption = 'Nama Costumer'
+    Caption = 'Hari berangkat'
   end
   object lbl2: TLabel
-    Left = 64
-    Top = 104
-    Width = 33
+    Left = 48
+    Top = 112
+    Width = 88
     Height = 13
-    Caption = 'Tujuan'
+    Caption = 'tanggal berangkat'
   end
   object lbl3: TLabel
-    Left = 64
-    Top = 136
-    Width = 33
+    Left = 48
+    Top = 144
+    Width = 68
     Height = 13
-    Caption = 'Alamat'
+    Caption = 'Waktu Kumpul'
   end
   object lbl4: TLabel
-    Left = 64
-    Top = 168
-    Width = 52
+    Left = 48
+    Top = 176
+    Width = 83
     Height = 13
-    Caption = 'No telepon'
+    Caption = 'Waktu Berangkat'
+  end
+  object lbl5: TLabel
+    Left = 56
+    Top = 56
+    Width = 31
+    Height = 13
+    Caption = 'id_bus'
   end
   object edt1: TEdit
-    Left = 176
-    Top = 64
+    Left = 144
+    Top = 56
     Width = 121
     Height = 21
     TabOrder = 0
   end
   object edt2: TEdit
-    Left = 176
-    Top = 104
+    Left = 144
+    Top = 80
     Width = 121
     Height = 21
     TabOrder = 1
   end
   object edt3: TEdit
-    Left = 176
-    Top = 136
+    Left = 144
+    Top = 112
     Width = 121
     Height = 21
     TabOrder = 2
   end
   object edt4: TEdit
-    Left = 176
-    Top = 168
+    Left = 144
+    Top = 144
     Width = 121
     Height = 21
     TabOrder = 3
   end
   object b1: TButton
-    Left = 64
-    Top = 208
+    Left = 48
+    Top = 216
     Width = 75
     Height = 25
     Caption = 'BARU'
@@ -80,8 +87,8 @@ object Form3: TForm3
     OnClick = b1Click
   end
   object b2: TButton
-    Left = 176
-    Top = 208
+    Left = 136
+    Top = 216
     Width = 75
     Height = 25
     Caption = 'SIMPAN'
@@ -89,8 +96,8 @@ object Form3: TForm3
     OnClick = b2Click
   end
   object b3: TButton
-    Left = 280
-    Top = 208
+    Left = 224
+    Top = 216
     Width = 75
     Height = 25
     Caption = 'EDIT'
@@ -98,8 +105,8 @@ object Form3: TForm3
     OnClick = b3Click
   end
   object b4: TButton
-    Left = 384
-    Top = 208
+    Left = 312
+    Top = 216
     Width = 75
     Height = 25
     Caption = 'HAPUS'
@@ -107,8 +114,8 @@ object Form3: TForm3
     OnClick = b4Click
   end
   object b5: TButton
-    Left = 488
-    Top = 208
+    Left = 400
+    Top = 216
     Width = 75
     Height = 25
     Caption = 'BATAL'
@@ -116,18 +123,17 @@ object Form3: TForm3
     OnClick = b5Click
   end
   object b6: TButton
-    Left = 592
-    Top = 208
+    Left = 488
+    Top = 216
     Width = 75
     Height = 25
     Caption = 'LAPORAN'
     TabOrder = 9
-    OnClick = b6Click
   end
   object dg1: TDBGrid
-    Left = 64
-    Top = 256
-    Width = 609
+    Left = 48
+    Top = 264
+    Width = 545
     Height = 120
     DataSource = ds1
     TabOrder = 10
@@ -136,12 +142,19 @@ object Form3: TForm3
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
-    OnCellClick = dg1CellClick
+  end
+  object edt5: TEdit
+    Left = 144
+    Top = 168
+    Width = 121
+    Height = 21
+    TabOrder = 11
+    Text = 'edt5'
   end
   object ds1: TDataSource
     DataSet = zqry1
-    Left = 384
-    Top = 128
+    Left = 304
+    Top = 152
   end
   object con1: TZConnection
     ControlsCodePage = cGET_ACP
@@ -156,25 +169,25 @@ object Form3: TForm3
     User = 'root'
     Protocol = 'mysql'
     LibraryLocation = 'E:\Folder PC Z\Kuliah\S5\VISUAL\visual10\libmysql.dll'
-    Left = 384
-    Top = 32
+    Left = 304
+    Top = 56
   end
   object zqry1: TZQuery
     Connection = con1
     Active = True
     SQL.Strings = (
-      'select * from tabel_costumer')
+      'select * from tabel_berangkat')
     Params = <>
-    Left = 384
-    Top = 80
+    Left = 304
+    Top = 104
   end
   object frxdbdtst1: TfrxDBDataset
     UserName = 'frxDBDataset1'
     CloseDataSource = False
     DataSet = zqry1
     BCDToCurrency = True
-    Left = 456
-    Top = 32
+    Left = 376
+    Top = 56
   end
   object frxrprt1: TfrxReport
     Version = '4.12.6'
@@ -185,14 +198,14 @@ object Form3: TForm3
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45101.545964409700000000
-    ReportOptions.LastChange = 45262.691640150500000000
+    ReportOptions.LastChange = 45262.703431562500000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
       ''
       'end.')
-    Left = 456
-    Top = 88
+    Left = 376
+    Top = 104
     Datasets = <
       item
         DataSet = frxdbdtst1
@@ -228,7 +241,7 @@ object Form3: TForm3
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8 = (
-            'FORM COSTUMER')
+            'LAPORAN DATA KELAS')
           ParentFont = False
         end
       end
@@ -238,86 +251,103 @@ object Form3: TForm3
         Width = 718.110700000000000000
         object Memo2: TfrxMemoView
           Top = 15.118120000000000000
-          Width = 30.236240000000000000
+          Width = 86.929190000000000000
           Height = 18.897650000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            'NO')
+            'ID-BERANGKAT')
           ParentFont = False
         end
         object Memo3: TfrxMemoView
-          Left = 30.236240000000000000
+          Left = 86.929190000000000000
           Top = 15.118120000000000000
-          Width = 136.063080000000000000
+          Width = 68.031540000000000000
           Height = 18.897650000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            'NAMA COSTUMER')
+            'ID-BUS')
           ParentFont = False
         end
         object Memo4: TfrxMemoView
-          Left = 166.299320000000000000
+          Left = 154.960730000000000000
           Top = 15.118120000000000000
-          Width = 117.165430000000000000
+          Width = 102.047310000000000000
           Height = 18.897650000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            'TUJUAN')
+            'HARI BERANGKAT')
           ParentFont = False
         end
         object Memo5: TfrxMemoView
-          Left = 283.464750000000000000
+          Left = 257.008040000000000000
           Top = 15.118120000000000000
-          Width = 94.488250000000000000
+          Width = 132.283550000000000000
           Height = 18.897650000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            'ALAMAT')
+            'TANGGAL BERANGKAT')
+          ParentFont = False
+        end
+        object Memo10: TfrxMemoView
+          Left = 389.291590000000000000
+          Top = 15.118120000000000000
+          Width = 102.047310000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'WAKTU KUMPUL')
           ParentFont = False
         end
         object Memo11: TfrxMemoView
-          Left = 377.953000000000000000
+          Left = 491.338900000000000000
           Top = 15.118120000000000000
-          Width = 117.165430000000000000
+          Width = 128.504020000000000000
           Height = 18.897650000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            'NO TELEPON')
+            'WAKTU BERANGKAT')
           ParentFont = False
         end
       end
@@ -329,10 +359,10 @@ object Form3: TForm3
         DataSetName = 'frxDBDataset1'
         RowCount = 0
         object Memo6: TfrxMemoView
-          Width = 30.236240000000000000
+          Width = 86.929190000000000000
           Height = 18.897650000000000000
           ShowHint = False
-          DataField = 'id_costumer'
+          DataField = 'id_berangkat'
           DataSet = frxdbdtst1
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
@@ -343,15 +373,15 @@ object Form3: TForm3
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBDataset1."id_costumer"]')
+            '[frxDBDataset1."id_berangkat"]')
           ParentFont = False
         end
         object Memo7: TfrxMemoView
-          Left = 30.236240000000000000
-          Width = 136.063080000000000000
+          Left = 86.929190000000000000
+          Width = 68.031540000000000000
           Height = 18.897650000000000000
           ShowHint = False
-          DataField = 'nama_costumer'
+          DataField = 'id_bus'
           DataSet = frxdbdtst1
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
@@ -362,15 +392,15 @@ object Form3: TForm3
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBDataset1."nama_costumer"]')
+            '[frxDBDataset1."id_bus"]')
           ParentFont = False
         end
         object Memo8: TfrxMemoView
-          Left = 283.464750000000000000
-          Width = 94.488250000000000000
+          Left = 154.960730000000000000
+          Width = 102.047310000000000000
           Height = 18.897650000000000000
           ShowHint = False
-          DataField = 'tujuan'
+          DataField = 'hari_berangkat'
           DataSet = frxdbdtst1
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
@@ -381,15 +411,15 @@ object Form3: TForm3
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBDataset1."tujuan"]')
+            '[frxDBDataset1."hari_berangkat"]')
           ParentFont = False
         end
         object Memo9: TfrxMemoView
-          Left = 166.299320000000000000
-          Width = 117.165430000000000000
+          Left = 257.008040000000000000
+          Width = 132.283550000000000000
           Height = 18.897650000000000000
           ShowHint = False
-          DataField = 'alamat'
+          DataField = 'tanggal_berangkat'
           DataSet = frxdbdtst1
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
@@ -400,15 +430,15 @@ object Form3: TForm3
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBDataset1."alamat"]')
+            '[frxDBDataset1."tanggal_berangkat"]')
           ParentFont = False
         end
-        object Memo10: TfrxMemoView
-          Left = 377.953000000000000000
-          Width = 117.165430000000000000
+        object Memo12: TfrxMemoView
+          Left = 389.291590000000000000
+          Width = 102.047310000000000000
           Height = 18.897650000000000000
           ShowHint = False
-          DataField = 'no_telepon'
+          DataField = 'waktu_kumpul'
           DataSet = frxdbdtst1
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
@@ -419,7 +449,26 @@ object Form3: TForm3
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBDataset1."no_telepon"]')
+            '[frxDBDataset1."waktu_kumpul"]')
+          ParentFont = False
+        end
+        object Memo13: TfrxMemoView
+          Left = 491.338900000000000000
+          Width = 128.504020000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DataField = 'waktu_berangkat'
+          DataSet = frxdbdtst1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset1."waktu_berangkat"]')
           ParentFont = False
         end
       end

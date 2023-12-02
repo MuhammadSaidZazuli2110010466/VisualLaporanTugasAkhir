@@ -1,4 +1,4 @@
-unit DetailTiket;
+unit Berangkat;
 
 interface
 
@@ -8,12 +8,15 @@ uses
   ZDataset, ZAbstractConnection, ZConnection, StdCtrls, Grids, DBGrids;
 
 type
-  TForm5 = class(TForm)
+  TForm7 = class(TForm)
+    edt1: TEdit;
+    edt2: TEdit;
+    edt3: TEdit;
+    edt4: TEdit;
     lbl1: TLabel;
     lbl2: TLabel;
-    edt2: TEdit;
-    cbb1: TComboBox;
     lbl3: TLabel;
+    lbl4: TLabel;
     b1: TButton;
     b2: TButton;
     b3: TButton;
@@ -25,9 +28,9 @@ type
     zqry1: TZQuery;
     frxdbdtst1: TfrxDBDataset;
     frxrprt1: TfrxReport;
-    zqry2: TZQuery;
-    edt1: TEdit;
     dg1: TDBGrid;
+    edt5: TEdit;
+    lbl5: TLabel;
     procedure b1Click(Sender: TObject);
     procedure b2Click(Sender: TObject);
     procedure b3Click(Sender: TObject);
@@ -37,8 +40,6 @@ type
     procedure editenable;
     procedure editbersih;
     procedure FormCreate(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure dg1CellClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -46,13 +47,13 @@ type
   end;
 
 var
-  Form5: TForm5;
-     id: string;
+  Form7: TForm7;
+  id: String;
 implementation
 
 {$R *.dfm}
 
-procedure TForm5.b1Click(Sender: TObject);
+procedure TForm7.b1Click(Sender: TObject);
 begin
 editbersih;
 editenable;
@@ -64,13 +65,13 @@ b4.Enabled:= False;
 b5.Enabled:= True;
 end;
 
-procedure TForm5.b2Click(Sender: TObject);
+procedure TForm7.b2Click(Sender: TObject);
 begin
-if (cbb1.Text= '')or (edt1.Text ='')or(edt2.Text= '')then
+if (edt1.Text= '')or(edt2.Text= '')or (edt3.Text ='')or (edt4.Text ='')or (edt5.Text ='')then
 begin
 ShowMessage('DATA TIDAK BOLEH KOSONG!');
 end else
-if (zqry1.Locate('nomor_kursi',cbb1.Text,[])) and (zqry1.Locate('harga_tiket',edt2.Text,[])) then
+if (zqry1.Locate('hari_berangkat',edt2.Text,[])) and (zqry1.Locate('waktu_kumpul',edt3.Text,[])) then
 begin
 ShowMessage('DATA KELAS SUDAH DIGUNAKAN');
 posisiawal;
@@ -78,11 +79,11 @@ end else
 begin
 //simpan
 zqry1.SQL.Clear;
-zqry1.SQL.Add('insert into tabel_detail_tiket values (null,"'+cbb1.Text+'","'+edt1.Text+'","'+edt2.Text+'")');
+zqry1.SQL.Add('insert into tabel_berangkat values (null,"'+edt1.Text+'","'+edt2.Text+'","'+edt3.Text+'","'+edt4.Text+'","'+edt5.Text+'")');
 zqry1.ExecSQL;
 
 zqry1.SQL.Clear;
-zqry1.SQL.Add('select * from tabel_detail_tiket');
+zqry1.SQL.Add('select * from tabel_berangkat');
 zqry1.Open;
 ShowMessage('DATA BARHASIL DISIMPAN!');
 posisiawal;
@@ -90,45 +91,44 @@ posisiawal;
 end;
 end;
 
-procedure TForm5.b3Click(Sender: TObject);
-begin
+procedure TForm7.b3Click(Sender: TObject);
 
 begin
-if (cbb1.Text= '')or (edt1.Text ='')or(edt2.Text= '')then
+if (edt1.Text= '')or(edt2.Text= '')or(edt3.Text= '')or(edt4.Text= '')or(edt5.Text= '')then
 begin
 ShowMessage('INPUTAN WAJIB DIISI!');
 end else
-if (cbb1.Text = zqry1.Fields[1].AsString) and (edt1.Text = zqry1.Fields[2].AsString) and (edt2.Text = zqry1.Fields[3].AsString)then
+if (edt1.Text = zqry1.Fields[1].AsString) and (edt2.Text = zqry1.Fields[2].AsString)then
 begin
 ShowMessage('DATA TIDAK ADA PERUBAHAN');
 posisiawal;
 end else
 begin
-id:=dg1.DataSource.DataSet.FieldByName('id_bus').AsString;
+id:=dg1.DataSource.DataSet.FieldByName('id_berangkat').AsString;
 ShowMessage('DATA BERHASIL DIUPDATE!'); //UPDATE
 zqry1.SQL.Clear;
-zqry1.SQL.Add('Update tabel_detail_tiket set id_bus= "'+cbb1.Text+'",nomor_kursi="'+edt1.Text+'",harga_tiket="'+edt2.Text+'" where id_tiket="'+id+'"');
+zqry1.SQL.Add('Update tabel_berangkat set id_berangkat= "'+edt1.Text+'" ,hari_berangkat= "'+edt2.Text+'",tgl_kumpul="'+edt3.Text+'",waktu_kumpul="'+edt4.Text+'",waktu_berangkat="'+edt5.Text+'" where id_berangkat="'+id+'"');
 zqry1. ExecSQL;
 
 zqry1.SQL.Clear;
-zqry1.SQL.Add('select * from tabel_detail_tiket');
+zqry1.SQL.Add('select * from tabel_berangkat');
 zqry1.Open;
 
 end;
 end;
-end;
 
-procedure TForm5.b4Click(Sender: TObject);
+
+procedure TForm7.b4Click(Sender: TObject);
 begin
 begin
 if MessageDlg('APAKAH YAKIN MENGHAPUS DATA INI?',mtWarning,[mbYes,mbNo],0)= mryes then
 begin
-id:=dg1.DataSource.DataSet.FieldByName('id_bus').AsString;
+id:=dg1.DataSource.DataSet.FieldByName('id_berangkat').AsString;
 zqry1.SQL.Clear;
-zqry1.SQL.Add(' delete from tabel_detail_tiket where id_tiket="'+id+'"');
+zqry1.SQL.Add(' delete from tabel_berangkat where id_berangkat="'+id+'"');
 zqry1. ExecSQL;
 zqry1.SQL.Clear;
-zqry1.SQL.Add('select * from tabel_detail_tiket');
+zqry1.SQL.Add('select * from tabel_berangkat');
 zqry1.Open;
 ShowMessage('DATA BERHASIL DIHAPUS');
 posisiawal;
@@ -140,16 +140,17 @@ end;
 end;
 end;
 
-procedure TForm5.b5Click(Sender: TObject);
+procedure TForm7.b5Click(Sender: TObject);
 begin
 posisiawal;
 end;
 
-procedure TForm5.posisiawal;
+procedure TForm7.posisiawal;
 begin
-cbb1.Enabled:= False;
 edt1.Enabled:= False;
 edt2.Enabled:= False;
+edt3.Enabled:= False;
+edt4.Enabled:= False;
 
 b1.Enabled:= True;
 b2.Enabled:= False;
@@ -158,53 +159,25 @@ b4.Enabled:= False;
 b5.Enabled:= False;
 end;
 
-procedure TForm5.editenable;
+procedure TForm7.editenable;
 begin
-cbb1.Enabled:= True;
 edt1.Enabled:= True;
 edt2.Enabled:= True;
-
+edt3.Enabled:= True;
+edt4.Enabled:= True;
 end;
 
-procedure TForm5.editbersih;
+procedure TForm7.editbersih;
 begin
-cbb1.Text:= '';
-edt1.Text:= '';
+ edt1.Clear;
 edt2.Clear;
+edt3.Clear;
+ edt4.Clear;
 end;
 
-procedure TForm5.FormCreate(Sender: TObject);
-begin
-zqry2.First;
-while not zqry2.Eof do
-begin
-  cbb1.items.add(zqry2.fieldbyname('id_tiket').asstring);
-  zqry2.Next;
-end;
-end;
-procedure TForm5.FormShow(Sender: TObject);
+procedure TForm7.FormCreate(Sender: TObject);
 begin
 posisiawal;
-
-
-end;
-
-procedure TForm5.dg1CellClick(Column: TColumn);
-begin
-editenable;
-
-b1.Enabled:= true;
-b2.Enabled:= False;
-b3.Enabled:= True;
-b4.Enabled:= True;
-b5.Enabled:= True;
-
-id:=zqry1.Fields[0].AsString;
-cbb1.Text:= zqry1.FieldList[1].AsString;
-edt1.Text:= zqry1.FieldList[2].AsString;
-edt2.Text:= zqry1.FieldList[3].AsString;
-
 end;
 
 end.
-

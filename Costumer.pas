@@ -39,6 +39,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure editenable;
     procedure dg1CellClick(Column: TColumn);
+    procedure b6Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -199,6 +200,11 @@ edt2.Text:= zqry1.FieldList[2].AsString;
 edt3.Text:= zqry1.FieldList[3].AsString;
 edt4.Text:= zqry1.FieldList[4].AsString;
 
+end;
+
+procedure TForm3.b6Click(Sender: TObject);
+begin
+frxrprt1.showreport();
 end;
 
 end.
