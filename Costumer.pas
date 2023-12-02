@@ -37,6 +37,8 @@ type
     procedure b5Click(Sender: TObject);
     procedure posisiawal;
     procedure FormCreate(Sender: TObject);
+    procedure editenable;
+    procedure dg1CellClick(Column: TColumn);
 
   private
     { Private declarations }
@@ -54,12 +56,13 @@ implementation
 procedure TForm3.b1Click(Sender: TObject);
 begin
 editbersih;
+editenable;
 
-b2.Enabled:= false;
-b3.Enabled:= True;
+b1.Enabled:= false;
+b2.Enabled:= True;
+b3.Enabled:= False;
 b4.Enabled:= False;
-b5.Enabled:= False;
-b6.Enabled:= True;
+b5.Enabled:= True;
 end;
 
 procedure TForm3.editbersih;
@@ -170,6 +173,32 @@ end;
 procedure TForm3.FormCreate(Sender: TObject);
 begin
 posisiawal;
+end;
+
+procedure TForm3.editenable;
+begin
+edt1.Enabled:= True;
+edt2.Enabled:= True;
+edt3.Enabled:= True;
+edt4.Enabled:= True;
+end;
+
+procedure TForm3.dg1CellClick(Column: TColumn);
+begin
+editenable;
+
+b1.Enabled:= true;
+b2.Enabled:= False;
+b3.Enabled:= True;
+b4.Enabled:= True;
+b5.Enabled:= True;
+
+id:=zqry1.Fields[0].AsString;
+edt1.Text:= zqry1.FieldList[1].AsString;
+edt2.Text:= zqry1.FieldList[2].AsString;
+edt3.Text:= zqry1.FieldList[3].AsString;
+edt4.Text:= zqry1.FieldList[4].AsString;
+
 end;
 
 end.

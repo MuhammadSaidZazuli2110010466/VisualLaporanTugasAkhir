@@ -1,8 +1,8 @@
 object Form3: TForm3
-  Left = 237
-  Top = 175
-  Width = 1305
-  Height = 675
+  Left = 666
+  Top = 378
+  Width = 726
+  Height = 436
   Caption = 'Tabel Costumer'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -135,6 +135,7 @@ object Form3: TForm3
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = dg1CellClick
   end
   object ds1: TDataSource
     DataSet = zqry1
@@ -147,6 +148,7 @@ object Form3: TForm3
     AutoEncodeStrings = False
     Properties.Strings = (
       'controls_cp=GET_ACP')
+    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'visual10'
@@ -158,6 +160,7 @@ object Form3: TForm3
   end
   object zqry1: TZQuery
     Connection = con1
+    Active = True
     SQL.Strings = (
       'select * from tabel_costumer')
     Params = <>

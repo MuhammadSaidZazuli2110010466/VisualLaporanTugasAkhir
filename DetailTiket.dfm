@@ -1,9 +1,9 @@
-object Form4: TForm4
-  Left = 761
-  Top = 231
-  Width = 668
-  Height = 440
-  Caption = 'Tiket'
+object Form5: TForm5
+  Left = 1165
+  Top = 378
+  Width = 621
+  Height = 510
+  Caption = 'Detail Tiket'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,117 +11,119 @@ object Form4: TForm4
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
-    Left = 104
-    Top = 80
-    Width = 64
-    Height = 13
-    Caption = 'Tanggal Tiket'
-  end
-  object lbl2: TLabel
-    Left = 104
-    Top = 152
+    Left = 80
+    Top = 104
     Width = 57
     Height = 13
     Caption = 'Nomer Kursi'
   end
-  object lbl3: TLabel
-    Left = 104
-    Top = 120
-    Width = 56
+  object lbl2: TLabel
+    Left = 80
+    Top = 136
+    Width = 55
     Height = 13
-    Caption = 'Keterangan'
+    Caption = 'Harga Tiket'
   end
-  object edt1: TEdit
-    Left = 224
+  object lbl3: TLabel
+    Left = 80
     Top = 80
-    Width = 121
+    Width = 57
+    Height = 13
+    Caption = 'Nomer Tiket'
+  end
+  object edt2: TEdit
+    Left = 152
+    Top = 136
+    Width = 145
     Height = 21
     TabOrder = 0
   end
-  object edt2: TEdit
-    Left = 224
-    Top = 120
-    Width = 121
+  object cbb1: TComboBox
+    Left = 152
+    Top = 104
+    Width = 145
     Height = 21
+    ItemHeight = 13
     TabOrder = 1
   end
-  object edt3: TEdit
-    Left = 224
-    Top = 152
-    Width = 121
-    Height = 21
-    TabOrder = 2
-  end
   object b1: TButton
-    Left = 96
-    Top = 216
+    Left = 72
+    Top = 176
     Width = 75
     Height = 25
     Caption = 'BARU'
-    TabOrder = 3
+    TabOrder = 2
     OnClick = b1Click
   end
   object b2: TButton
-    Left = 184
-    Top = 216
+    Left = 160
+    Top = 176
     Width = 75
     Height = 25
     Caption = 'SIMPAN'
-    TabOrder = 4
+    TabOrder = 3
     OnClick = b2Click
   end
   object b3: TButton
-    Left = 272
-    Top = 216
+    Left = 248
+    Top = 176
     Width = 75
     Height = 25
     Caption = 'EDIT'
-    TabOrder = 5
+    TabOrder = 4
     OnClick = b3Click
   end
   object b4: TButton
-    Left = 360
-    Top = 216
+    Left = 336
+    Top = 176
     Width = 75
     Height = 25
     Caption = 'HAPUS'
-    TabOrder = 6
+    TabOrder = 5
     OnClick = b4Click
   end
   object b5: TButton
-    Left = 448
-    Top = 216
+    Left = 424
+    Top = 176
     Width = 75
     Height = 25
     Caption = 'BATAL'
-    TabOrder = 7
+    TabOrder = 6
     OnClick = b5Click
   end
   object b6: TButton
-    Left = 536
-    Top = 216
+    Left = 512
+    Top = 176
     Width = 75
     Height = 25
     Caption = 'LAPORAN'
-    TabOrder = 8
+    TabOrder = 7
   end
   object dg1: TDBGrid
-    Left = 40
-    Top = 256
-    Width = 577
+    Left = 72
+    Top = 224
+    Width = 521
     Height = 120
     DataSource = ds1
-    TabOrder = 9
+    TabOrder = 8
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
-    OnCellClick = dg1CellClick
+  end
+  object cbb2: TComboBox
+    Left = 152
+    Top = 80
+    Width = 145
+    Height = 21
+    ItemHeight = 13
+    TabOrder = 9
   end
   object ds1: TDataSource
     DataSet = zqry1
@@ -148,7 +150,7 @@ object Form4: TForm4
     Connection = con1
     Active = True
     SQL.Strings = (
-      'select * from tabel_tiket')
+      'select * from tabel_detail_tiket')
     Params = <>
     Left = 384
     Top = 80
@@ -177,7 +179,7 @@ object Form4: TForm4
       ''
       'end.')
     Left = 456
-    Top = 88
+    Top = 80
     Datasets = <
       item
         DataSet = frxdbdtst1
@@ -375,5 +377,23 @@ object Form4: TForm4
         end
       end
     end
+  end
+  object zqry2: TZQuery
+    Connection = con1
+    Active = True
+    SQL.Strings = (
+      'select * from tabel_tiket')
+    Params = <>
+    Left = 456
+    Top = 128
+  end
+  object zqry3: TZQuery
+    Connection = con1
+    Active = True
+    SQL.Strings = (
+      'select * from tabel_tiket')
+    Params = <>
+    Left = 512
+    Top = 32
   end
 end
