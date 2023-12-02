@@ -3,7 +3,7 @@ object Form3: TForm3
   Top = 175
   Width = 1305
   Height = 675
-  Caption = 'Form3'
+  Caption = 'Tabel Costumer'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,6 +11,7 @@ object Form3: TForm3
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
@@ -47,7 +48,6 @@ object Form3: TForm3
     Width = 121
     Height = 21
     TabOrder = 0
-    Text = 'edt1'
   end
   object edt2: TEdit
     Left = 176
@@ -55,7 +55,6 @@ object Form3: TForm3
     Width = 121
     Height = 21
     TabOrder = 1
-    Text = 'edt2'
   end
   object edt3: TEdit
     Left = 176
@@ -63,7 +62,6 @@ object Form3: TForm3
     Width = 121
     Height = 21
     TabOrder = 2
-    Text = 'edt3'
   end
   object edt4: TEdit
     Left = 176
@@ -71,7 +69,6 @@ object Form3: TForm3
     Width = 121
     Height = 21
     TabOrder = 3
-    Text = 'edt4'
   end
   object b1: TButton
     Left = 64
@@ -155,9 +152,7 @@ object Form3: TForm3
     Database = 'visual10'
     User = 'root'
     Protocol = 'mysql'
-    LibraryLocation = 
-      'E:\Folder PC Z\Kuliah\S5\VISUAL\VISUALTUGASAKHIR-main\VISUALTUGA' +
-      'SAKHIR-main\Tugas Akhir Visual\libmysql.dll'
+    LibraryLocation = 'E:\Folder PC Z\Kuliah\S5\VISUAL\visual10\libmysql.dll'
     Left = 384
     Top = 32
   end
@@ -173,7 +168,7 @@ object Form3: TForm3
     UserName = 'frxDBDataset1'
     CloseDataSource = False
     DataSet = zqry1
-    BCDToCurrency = False
+    BCDToCurrency = True
     Left = 456
     Top = 32
   end

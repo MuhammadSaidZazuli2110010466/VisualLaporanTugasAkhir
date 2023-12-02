@@ -36,6 +36,7 @@ type
     procedure b4Click(Sender: TObject);
     procedure b5Click(Sender: TObject);
     procedure posisiawal;
+    procedure FormCreate(Sender: TObject);
 
   private
     { Private declarations }
@@ -164,6 +165,11 @@ b2.Enabled:= False;
 b3.Enabled:= False;
 b4.Enabled:= False;
 b5.Enabled:= False;
+end;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+posisiawal;
 end;
 
 end.

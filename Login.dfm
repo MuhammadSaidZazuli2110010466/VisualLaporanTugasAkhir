@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 281
   Width = 724
   Height = 515
-  Caption = 'Form1'
+  Caption = 'Form Login'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -76,19 +76,17 @@ object Form1: TForm1
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
     AutoEncodeStrings = False
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'visual10'
     User = 'root'
     Protocol = 'mysql'
-    LibraryLocation = 'E:\Folder PC Z\Kuliah\S5\VISUAL\libmysql.dll'
+    LibraryLocation = 'E:\Folder PC Z\Kuliah\S5\VISUAL\visual10\libmysql.dll'
     Left = 224
     Top = 424
   end
   object zquery1: TZReadOnlyQuery
     Connection = con1
-    Active = True
     SQL.Strings = (
       'select * from tabel_user')
     Params = <>
