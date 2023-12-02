@@ -52,6 +52,7 @@ object Form1: TForm1
     Top = 272
     Width = 121
     Height = 21
+    PasswordChar = '*'
     TabOrder = 1
   end
   object b1: TButton

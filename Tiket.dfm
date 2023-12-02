@@ -130,7 +130,6 @@ object Form4: TForm4
     Width = 145
     Height = 21
     TabOrder = 9
-    Text = 'edt3'
   end
   object edt4: TEdit
     Left = 208
@@ -138,7 +137,6 @@ object Form4: TForm4
     Width = 145
     Height = 21
     TabOrder = 10
-    Text = 'edt4'
   end
   object ds1: TDataSource
     DataSet = zqry1
@@ -187,7 +185,7 @@ object Form4: TForm4
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45101.545964409700000000
-    ReportOptions.LastChange = 45262.695192534720000000
+    ReportOptions.LastChange = 45262.695192534700000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
